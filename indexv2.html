@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root"></div>
+</body>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.0/
+    dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "react": "https://esm.sh/react?dev",
+                "react-dom/client": "https://esm.sh/react-dom/client?dev"
+            }
+        }
+    </script>
+    <script type="text/babel" data-type="module">
+        import React, { StrictMode } from 'react';
+        import { createRoot } from 'react-dom/client';
+        let variavel = "Onde houver vento!";
+        let booleana = true;
+        let conteudo = '';
+        let conteudo2 = '';
+
+        function MyButton() {
+    return (
+        <button>Botão</button>
+    );
+}
+function MyAvatar(){
+    return(
+        <>
+        <div className="div-avatar">
+        <img src="avatar.jpg" className="avatar" />
+    </div>
+    </>
+    );
+}
+
+function MyTestinho() {
+    // formato if expandido
+    if (booleana) {
+        conteudo = 'Verdadeiro';
+    } else {
+        conteudo = 'Fake'
+    }
+    //formato if compacto
+    booleana ? (conteudo2 = 'foi o 2'): (conteudo2 = 'não foi o 2');
+    //formato if super-compacto-marvel
+    //apenas considera o valor true
+    booleana && ( conteudo3 = "Shalala!");
+    return (
+        <>
+        <i>Avatar</i>
+        <br/>
+        <b>O herói</b>
+        <br/>
+        Comunicamos que por não usar manual, encontrou-se com o mal remediavel da calvice.
+        {variavel}
+        <br/>
+        {conteudo}
+        <br/>
+        {conteudo2}
+        <br/>
+        {conteudo3}
+        </>
+    )
+}
+let App = function MyApp(){
+
+    return (
+        <div>
+            <h1>Renderizei um botão</h1>
+            <MyButton/>
+            <h1>Renderizei uma imagem</h1>
+
+            <MyAvatar/>
+            <MyTestinho/>
+        </div>
+    );
+}
+const root = createRoot(document.getElementById('root'));
+root.render(
+    <StrictMode>
+        <App />
+        </StrictMode>
+    );
+    </script>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        body{
+            font-family:sans-serif;
+            margin:20px;
+            padding:0;
+        }
+    </style>
+</html>
